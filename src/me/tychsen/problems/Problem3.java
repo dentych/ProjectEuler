@@ -15,7 +15,7 @@ public class Problem3 implements EulerProblem {
         BigInteger number = new BigInteger("600851475143");
 
         while (divider.compareTo(number.divide(new BigInteger("2"))) < 0) {
-            if (number.mod(divider) == BigInteger.ZERO) {
+            if (number.mod(divider).equals(BigInteger.ZERO)) {
                 primeFactors.add(divider);
             }
             divider = divider.add(new BigInteger("1"));
