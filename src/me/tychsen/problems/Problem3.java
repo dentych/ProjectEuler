@@ -10,17 +10,31 @@ import java.util.Stack;
 public class Problem3 implements EulerProblem {
     @Override
     public int run() {
-        Stack<BigInteger> primeFactors= new Stack<>();
         BigInteger divider = new BigInteger("2");
         BigInteger number = new BigInteger("600851475143");
 
+
         while (divider.compareTo(number.divide(new BigInteger("2"))) < 0) {
             if (number.mod(divider).equals(BigInteger.ZERO)) {
-                primeFactors.add(divider);
+                number = number.divide(divider);
+                if (isPrime(number)) {
+                    return number.intValue();
+                }
             }
             divider = divider.add(new BigInteger("1"));
-            System.out.println("Current value: " + divider.doubleValue());
         }
-        return primeFactors.pop().intValue();
+
+        return -1;
+    }
+
+    private boolean isPrime(BigInteger number) {
+        double numberAsInt = number.doubleValue();
+        for (double i = 2; i < numberAsInt; i++) {
+            if (numberAsInt % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
