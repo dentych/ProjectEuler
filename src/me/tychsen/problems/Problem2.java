@@ -6,7 +6,7 @@ package me.tychsen.problems;
  */
 public class Problem2 implements EulerProblem {
     @Override
-    public int run() {
+    public String run() {
         int previous = 1;
         int current = 2;
         int sum = 0;
@@ -20,6 +20,11 @@ public class Problem2 implements EulerProblem {
             current = newCurrent;
         }
 
-        return sum;
+        return String.valueOf(sum);
+    }
+
+    @Override
+    public String getName() {
+        return "Problem2";
     }
 }

@@ -1,5 +1,6 @@
 package me.tychsen.problems;
 
 public interface EulerProblem {
-    int run();
+    String run();
+    String getName();
 }

@@ -9,7 +9,7 @@ import java.util.Stack;
  */
 public class Problem3 implements EulerProblem {
     @Override
-    public int run() {
+    public String run() {
         BigInteger divider = new BigInteger("2");
         BigInteger number = new BigInteger("600851475143");
 
@@ -18,13 +18,18 @@ public class Problem3 implements EulerProblem {
             if (number.mod(divider).equals(BigInteger.ZERO)) {
                 number = number.divide(divider);
                 if (isPrime(number)) {
-                    return number.intValue();
+                    return String.valueOf(number);
                 }
             }
             divider = divider.add(new BigInteger("1"));
         }
 
-        return -1;
+        return "No solution found";
+    }
+
+    @Override
+    public String getName() {
+        return "Problem3";
     }
 
     private boolean isPrime(BigInteger number) {
