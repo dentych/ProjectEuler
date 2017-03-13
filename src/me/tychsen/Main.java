@@ -9,14 +9,15 @@ public class Main {
     private static List<EulerProblem> problems = new ArrayList<>();
 
     public static void main(String... args) {
-        problems.add(new Problem2());
-        problems.add(new Problem3());
-        problems.add(new Problem4());
-        problems.add(new Problem5());
-        problems.add(new Problem6());
-        problems.add(new Problem7());
-        problems.add(new Problem8());
-        problems.add(new Problem9());
+//        problems.add(new Problem2());
+//        problems.add(new Problem3());
+//        problems.add(new Problem4());
+//        problems.add(new Problem5());
+//        problems.add(new Problem6());
+//        problems.add(new Problem7());
+//        problems.add(new Problem8());
+//        problems.add(new Problem9());
+        problems.add(new Problem10());
 
         execute();
     }
