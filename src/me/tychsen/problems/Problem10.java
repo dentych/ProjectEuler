@@ -1,24 +1,33 @@
 package me.tychsen.problems;
 
-import me.tychsen.util.PrimeCalculator;
+import java.util.Arrays;
 
 public class Problem10 implements EulerProblem {
-    private PrimeCalculator primeCalculator = new PrimeCalculator();
+    private static final int SIZE = 2000000;
 
     @Override
     public String run() {
+        boolean array[] = new boolean[SIZE+1];
         long sum = 0;
 
-        long prime = 0;
-        do {
-            sum += prime;
-            if (prime % 100000 < 10) {
-                System.out.println("Current prime: " + prime);
-            }
-            prime = primeCalculator.nextPrime();
-        } while (prime < 2000000);
+        Arrays.fill(array, true);
 
-        return String.valueOf(prime);
+        for (int i = 2; i < Math.sqrt(SIZE); i++) {
+            if (array[i]) {
+                for (int j = 0; ((i * i) + (i * j)) < SIZE; j++) {
+                    int index = ((i * i) + (i * j));
+                    array[index] = false;
+                }
+            }
+        }
+
+        for (int i = 2; i < SIZE; i++) {
+            if (array[i]) {
+                sum += i;
+            }
+        }
+
+        return String.valueOf(sum);
     }
 
     @Override
